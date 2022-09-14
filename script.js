@@ -1,6 +1,6 @@
 const display = document.getElementById("display");
 const question = document.getElementById("question");
-const startBtn = document.getElementById("starts");
+const startBtn = document.getElementById("starts"); // wrong Id name
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
@@ -45,7 +45,7 @@ const typeController = (e) => {
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
-    errorCount++;
+    errorCount++; // for count error
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
 
@@ -68,7 +68,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = parseInt((finishTime - startTime) / 1000);
+  const timeTaken = parseInt((finishTime - startTime) / 1000); // time intiger in histry
 
   // show result modal
   resultModal.innerHTML = "";
@@ -110,16 +110,16 @@ const start = () => {
 
   const startCountdown = setInterval(() => {
     
-    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`; // back tick problem 
     
 
     // finished timer
-    if (count == -1) {
+    if (count == -1) {  // let -1 instead of zero for count down 3,2,1,0
       // -------------- START TYPING -----------------
       
       document.addEventListener("keydown", typeController);
       
-      countdownOverlay.style.display = "none";
+      countdownOverlay.style.display = "none"; // display done when zero in the screen
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
@@ -138,7 +138,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = parseInt((currentTime - startTime) / 1000);
+  const timeSpent = parseInt((currentTime - startTime) / 1000); // time in integer.
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;

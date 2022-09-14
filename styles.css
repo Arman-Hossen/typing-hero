@@ -140,6 +140,7 @@ button {
   border: 2px solid #9dffad;
   cursor: pointer;
 }
+ /* show 3 column for laptop */
 
 #histories {
   display: grid;
@@ -185,6 +186,7 @@ button {
   position: fixed;
   top: 0;
 }
+/* for mobile veiw */
 
 @media only screen and (max-width: 700px) {
 
